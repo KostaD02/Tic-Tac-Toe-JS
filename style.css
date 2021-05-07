@@ -2,6 +2,10 @@ body {
   margin: 0px;
   padding: 0px;
 }
+main {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  height: 1200px;
+}
 .option .wrapper {
   position: fixed;
   top: 50%;
@@ -17,19 +21,17 @@ body {
   font-size: 18px;
   font-family: sans-serif;
   text-decoration: none;
-  color: #333;
-  border: 2px solid #333;
+  color: white;
+  border: 2px solid white;
   letter-spacing: 2px;
   text-align: center;
   position: relative;
   transition: all 0.35s;
 }
-
 .option a span {
   position: relative;
   z-index: 2;
 }
-
 .option a:after {
   position: absolute;
   content: "";
@@ -40,7 +42,6 @@ body {
   background: #ff003b;
   transition: all 0.35s;
 }
-
 .option a:hover {
   color: #fff;
 }
@@ -48,7 +49,77 @@ body {
 .option a:hover:after {
   width: 100%;
 }
-
 .show {
   display: none;
+}
+.names {
+  margin-top: 50px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+.names p {
+  font-family: "Itim", cursive;
+  font-size: 30px;
+  color: white;
+  margin-left: 100px;
+}
+.place {
+  width: auto;
+  display: none;
+  margin-left: 200px;
+}
+.place .first,
+.second,
+.third,
+.forth,
+.fifth,
+.sixth,
+.seventh,
+.eighth,
+.ninth {
+  width: 250px;
+  display: inline-block;
+  background-color: transparent;
+  height: 250px;
+}
+.first {
+  border-right: 5px solid cyan;
+  margin-bottom: -10px;
+}
+.second {
+  margin-left: -5px;
+  margin-bottom: -10px;
+}
+.third {
+  margin-left: -5px;
+  border-left: 5px solid cyan;
+  margin-bottom: -10px;
+}
+.forth,
+.seventh {
+  border-right: 5px solid cyan;
+  margin-top: -5px;
+  border-top: 5px solid cyan;
+}
+.fifth,
+.eighth {
+  border-top: 5px solid cyan;
+  margin-left: -5px;
+}
+.sixth,
+.ninth {
+  border-left: 5px solid cyan;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-top: 5px solid cyan;
+}
+.forth {
+  margin-bottom: -5px;
+}
+.fifth {
+  margin-bottom: -5px;
+}
+.sixth {
+  margin-bottom: -5px;
 }

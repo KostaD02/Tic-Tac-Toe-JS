@@ -7,23 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic tac toe</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 
 <body>
     <main>
         <div class="option" id="option">
             <div class="wrapper">
-                <a onclick="start(`option`,`show`)"><span>Start</span></a>
+                <a onclick="start(`option`,`show`,`place`)"><span>Start</span></a>
             </div>
         </div>
         <div class="show" id="show">
             <div class="names">
-                <aside class="left">
-                    <p id="displayFirstPlayerNumber"></p>
-                </aside>
-                <aside class="rigth">
-                    <p id="displaySecondPlayerNumber"></p>
-                </aside>
+                <p id="displayFirstPlayerNumber"></p>
+                <p id="displaySecondPlayerNumber"></p>
+                <p id="displayPlayerTurn">Player One</p>
+            </div>
+        </div>
+        <div class="place" id="place">
+            <div class="first" onclick="displayPoint()">
+                <p id="one"></p>
+            </div>
+            <div class="second" onclick="displayPoint()">
+                <p id="two"></p>
+            </div>
+            <div class="third" onclick="displayPoint()">
+                <p id="three"></p>
+            </div>
+            <br>
+            <div class="forth" onclick="displayPoint()">
+                <p id="four"></p>
+            </div>
+            <div class="fifth" onclick="displayPoint()">
+                <p id="five"></p>
+            </div>
+            <div class="sixth" onclick="displayPoint()">
+                <p id="six"></p>
+            </div>
+            <br>
+            <div class="seventh" onclick="displayPoint()">
+                <p id="seven"></p>
+            </div>
+            <div class="eighth" onclick="displayPoint()">
+                <p id="eigth"></p>
+            </div>
+            <div class="ninth" onclick="displayPoint()">
+                <p id="nine"></p>
             </div>
         </div>
     </main>
