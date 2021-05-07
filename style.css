@@ -1,6 +1,12 @@
 body {
   margin: 0px;
   padding: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 main {
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
@@ -65,61 +71,24 @@ main {
   margin-left: 100px;
 }
 .place {
-  width: auto;
   display: none;
-  margin-left: 200px;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 6px solid #2c3e50;
+  border-radius: 10px;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
-.place .first,
-.second,
-.third,
-.forth,
-.fifth,
-.sixth,
-.seventh,
-.eighth,
-.ninth {
-  width: 250px;
-  display: inline-block;
-  background-color: transparent;
-  height: 250px;
-}
-.first {
-  border-right: 5px solid cyan;
-  margin-bottom: -10px;
-}
-.second {
-  margin-left: -5px;
-  margin-bottom: -10px;
-}
-.third {
-  margin-left: -5px;
-  border-left: 5px solid cyan;
-  margin-bottom: -10px;
-}
-.forth,
-.seventh {
-  border-right: 5px solid cyan;
-  margin-top: -5px;
-  border-top: 5px solid cyan;
-}
-.fifth,
-.eighth {
-  border-top: 5px solid cyan;
-  margin-left: -5px;
-}
-.sixth,
-.ninth {
-  border-left: 5px solid cyan;
-  margin-left: -5px;
-  margin-top: -5px;
-  border-top: 5px solid cyan;
-}
-.forth {
-  margin-bottom: -5px;
-}
-.fifth {
-  margin-bottom: -5px;
-}
-.sixth {
-  margin-bottom: -5px;
+
+.cube {
+  border: 6px solid #2c3e50;
+  border-radius: 2px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

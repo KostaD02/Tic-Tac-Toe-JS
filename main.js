@@ -11,11 +11,15 @@ function inputNames() {
 function start(ClearID, ShowID, placeID) {
   document.getElementById(ClearID).style.display = "none";
   document.getElementById(ShowID).style.display = "inline-block";
-  document.getElementById(placeID).style.display = "inline-block";
+  document.getElementById(placeID).style.display = "grid";
   displayPlayerNames();
 }
 
 function displayPlayerNames() {
   document.getElementById("displayFirstPlayerNumber").innerHTML = names[0];
   document.getElementById("displaySecondPlayerNumber").innerHTML = names[1];
+}
+
+function displayPoint(displayID) {
+  document.getElementById(`${displayID}`).innerHTML = "X";
 }
