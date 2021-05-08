@@ -29,10 +29,10 @@ let list = {
 
 function inputNames() {
   let tempNames = [];
-  //let playerOneName = prompt("Input first player name:");
-  //let playerTwoName = prompt("Input second player name:");
-  let playerOneName = "Player one";
-  let playerTwoName = "Player two";
+  let playerOneName = prompt("Input first player name:");
+  let playerTwoName = prompt("Input second player name:");
+  //let playerOneName = "Player one";
+  //let playerTwoName = "Player two";
   tempNames.push(playerOneName, playerTwoName);
   return tempNames;
 }
