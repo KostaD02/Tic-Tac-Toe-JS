@@ -1,14 +1,14 @@
 let names;
 let winner = false;
 const winningPlace = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7],
+  "1,2,3",
+  "4,5,6",
+  "7,8,9",
+  "1,4,7",
+  "2,5,8",
+  "3,6,9",
+  "1,5,9",
+  "3,5,7",
 ];
 
 let x = [];
@@ -29,8 +29,10 @@ let list = {
 
 function inputNames() {
   let tempNames = [];
-  let playerOneName = prompt("Input first player name:");
-  let playerTwoName = prompt("Input second player name:");
+  //let playerOneName = prompt("Input first player name:");
+  //let playerTwoName = prompt("Input second player name:");
+  let playerOneName = "Player one";
+  let playerTwoName = "Player two";
   tempNames.push(playerOneName, playerTwoName);
   return tempNames;
 }
@@ -120,9 +122,10 @@ function checkWinner(counter) {
   if (counter == 5) {
     let xArray = x.sort();
     let win = false;
+    let currentString = `${xArray[0]},${xArray[1]},${xArray[2]}`;
     for (let i = 0; i < winningPlace.length; i++) {
       for (let j = 0; j < 3; j++) {
-        if (winningPlace[i][j] == xArray[j]) {
+        if (winningPlace[i] == currentString) {
           win = true;
           break;
         }
@@ -133,11 +136,29 @@ function checkWinner(counter) {
       winner = true;
     }
   }
+  if (counter == 6) {
+    let yArray = y.sort();
+    let win = false;
+    let currentString = `${yArray[0]},${yArray[1]},${yArray[2]}`;
+    for (let i = 0; i < winningPlace.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (winningPlace[i] == currentString) {
+          win = true;
+          break;
+        }
+      }
+    }
+    if (win) {
+      displayWinner(2);
+      winner = true;
+    }
+  }
 }
 
 function displayPoint(displayID) {
   let char = displaymarker(list.counter);
   placerLogic(displayID, char);
   if (list.counter == 5) checkWinner(5);
+  if (list.counter == 6) checkWinner(6);
   guessingMove(char);
 }
