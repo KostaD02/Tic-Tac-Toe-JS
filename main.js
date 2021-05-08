@@ -156,13 +156,15 @@ function checkWinner(counter) {
     let xArray = x.sort();
     let counter = 0;
     for (let i = 0; i < winningPlace.length; i++) {
-      for (let j = 0; j < 4; j++) {
-        if (winningPlace[i][j] == xArray[j]) {
-          counter++;
-          if (counter == 3) {
-            displayWinner(1);
-            winner = true;
-            break;
+      for (let j = 0; j < 3; j++) {
+        for (let k = 0; k < 4; k++) {
+          if (winningPlace[i][j] == xArray[k]) {
+            counter++;
+            if (counter == 3) {
+              displayWinner(1);
+              winner = true;
+              return;
+            }
           }
         }
       }
@@ -173,13 +175,15 @@ function checkWinner(counter) {
     let yArray = y.sort();
     let counter = 0;
     for (let i = 0; i < winningPlace.length; i++) {
-      for (let j = 0; j < 4; j++) {
-        if (winningPlace[i][j] == yArray[j]) {
-          counter++;
-          if (counter == 3) {
-            displayWinner(2);
-            winner = true;
-            break;
+      for (let j = 0; j < 3; j++) {
+        for (let k = 0; k < 4; k++) {
+          if (winningPlace[i][j] == yArray[k]) {
+            counter++;
+            if (counter == 3) {
+              displayWinner(2);
+              winner = true;
+              return;
+            }
           }
         }
       }
@@ -190,13 +194,15 @@ function checkWinner(counter) {
     let xArray = x.sort();
     let counter = 0;
     for (let i = 0; i < winningPlace.length; i++) {
-      for (let j = 0; j < 5; j++) {
-        if (winningPlace[i][j] == xArray[j]) {
-          counter++;
-          if (counter == 3) {
-            displayWinner(1);
-            winner = true;
-            return;
+      for (let j = 0; j < 3; j++) {
+        for (let k = 0; k < 5; k++) {
+          if (winningPlace[i][j] == xArray[k]) {
+            counter++;
+            if (counter == 3) {
+              displayWinner(1);
+              winner = true;
+              return;
+            }
           }
         }
       }
