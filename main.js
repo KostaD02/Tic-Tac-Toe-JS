@@ -1,21 +1,36 @@
-let names = inputNames();
+let names;
+let winner = false;
+const winningPlace = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
+];
+
+let x = [];
+let y = [];
+
 let list = {
-  1: false,
-  2: false,
-  3: false,
-  4: false,
-  5: false,
-  6: false,
-  7: false,
-  8: false,
-  9: false,
+  1: true,
+  2: true,
+  3: true,
+  4: true,
+  5: true,
+  6: true,
+  7: true,
+  8: true,
+  9: true,
   counter: 0,
 };
 
 function inputNames() {
   let tempNames = [];
-  let playerOneName = `Player 1  <i class="fas fa-times"></i>`;
-  let playerTwoName = `Player 2  <i class="far fa-circle"></i>`;
+  let playerOneName = prompt("Input first player name:");
+  let playerTwoName = prompt("Input second player name:");
   tempNames.push(playerOneName, playerTwoName);
   return tempNames;
 }
@@ -24,31 +39,105 @@ function start(ClearID, ShowID, placeID) {
   document.getElementById(ClearID).style.display = "none";
   document.getElementById(ShowID).style.display = "inline-block";
   document.getElementById(placeID).style.display = "grid";
+  names = inputNames();
   displayPlayerNames();
 }
 
 function displayPlayerNames() {
-  document.getElementById("displayFirstPlayerNumber").innerHTML = names[0];
-  document.getElementById("displaySecondPlayerNumber").innerHTML = names[1];
+  document.getElementById(
+    "displayFirstPlayerNumber"
+  ).innerHTML = `${names[0]} <i class="fas fa-times"></i>`;
+  document.getElementById(
+    "displaySecondPlayerNumber"
+  ).innerHTML = `${names[1]} <i class="far fa-circle"></i>`;
 }
 
 function placerLogic(displayID, char) {
-  if (list[`${displayID}`]) {
-    document.getElementById(`${displayID}`).innerHTML = "";
-    list[`${displayID}`] = false;
-  } else {
-    document.getElementById(`${displayID}`).innerHTML = `${char}`;
-    list[`${displayID}`] = true;
-    list.counter++;
+  if (!winner) {
+    if (list[`${displayID}`]) {
+      if (char == "X") {
+        document.getElementById(
+          `${displayID}`
+        ).innerHTML = `<i class="fas fa-times"></i>`;
+        x.push(parseFloat(`${displayID}`));
+      } else {
+        document.getElementById(
+          `${displayID}`
+        ).innerHTML = `<i class="far fa-circle"></i>`;
+        y.push(`${displayID}`);
+      }
+
+      list[`${displayID}`] = false;
+      list.counter++;
+    }
   }
 }
 
 function displaymarker(counter) {
-  if (counter % 2 == 0) return ` <i class="fas fa-times"></i>`;
-  else return `<i class="far fa-circle"></i>`;
+  if (counter % 2 == 0) return `X`;
+  else return `O`;
+}
+
+function displayWinner(player) {
+  if (player == 1) {
+    Swal.fire({
+      icon: "success",
+      title: "We have winner",
+      text: `Congratulations ${names[0]}`,
+    });
+  } else {
+    Swal.fire({
+      icon: "success",
+      title: "We have winner",
+      text: `Congratulations ${names[1]}`,
+    });
+  }
+}
+
+function guessingMove(char) {
+  if (!winner) {
+    if (char == "X")
+      document.getElementById(
+        `displayPlayerTurn`
+      ).innerHTML = `Now making move O`;
+    else
+      document.getElementById(
+        `displayPlayerTurn`
+      ).innerHTML = `Now making move X`;
+  } else {
+    if (char == "X")
+      document.getElementById(
+        `displayPlayerTurn`
+      ).innerHTML = `Winner is ${names[0]}`;
+    else
+      document.getElementById(
+        `displayPlayerTurn`
+      ).innerHTML = `Winner is ${names[1]}`;
+  }
+}
+
+function checkWinner(counter) {
+  if (counter == 5) {
+    let xArray = x.sort();
+    let win = false;
+    for (let i = 0; i < winningPlace.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (winningPlace[i][j] == xArray[j]) {
+          win = true;
+          break;
+        }
+      }
+    }
+    if (win) {
+      displayWinner(1);
+      winner = true;
+    }
+  }
 }
 
 function displayPoint(displayID) {
   let char = displaymarker(list.counter);
   placerLogic(displayID, char);
+  if (list.counter == 5) checkWinner(5);
+  guessingMove(char);
 }
