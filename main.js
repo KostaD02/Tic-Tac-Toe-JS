@@ -45,7 +45,7 @@ function inputNames() {
   let tempNames = [];
   let playerOneName = prompt("Input first player name:");
   let playerTwoName = prompt("Input second player name:");
-  //let playerOneName = "Player one";``
+  //let playerOneName = "Player one";
   //let playerTwoName = "Player two";
   tempNames.push(nameCheker(playerOneName, 1), nameCheker(playerTwoName, 2));
   return tempNames;
