@@ -34,7 +34,8 @@ function nameCheker(string, numberName) {
     string == "1" ||
     string == "2" ||
     string == null ||
-    string == undefined
+    string == undefined ||
+    string.length == 1
   ) {
     string = `Player ${numberName}`;
   }
