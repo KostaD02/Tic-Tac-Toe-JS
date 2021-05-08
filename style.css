@@ -92,3 +92,47 @@ main {
   justify-content: center;
   align-items: center;
 }
+.button {
+  width: 80%;
+  margin: auto;
+}
+.restart {
+  width: 80%;
+  margin: auto;
+}
+.restart a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+}
+.restart a span {
+  position: relative;
+  z-index: 2;
+}
+.restart a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all 0.35s;
+}
+.restart a:hover {
+  color: #fff;
+}
+
+.restart a:hover:after {
+  width: 100%;
+}

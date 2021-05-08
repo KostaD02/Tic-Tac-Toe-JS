@@ -27,13 +27,26 @@ let list = {
   counter: 0,
 };
 
+function nameCheker(string, number) {
+  if (
+    string == "" ||
+    string == "1" ||
+    string == "2" ||
+    string == null ||
+    string == undefined
+  ) {
+    string = `Player ${number}`;
+  }
+  return string;
+}
+
 function inputNames() {
   let tempNames = [];
-  let playerOneName = prompt("Input first player name:");
-  let playerTwoName = prompt("Input second player name:");
-  //let playerOneName = "Player one";
-  //let playerTwoName = "Player two";
-  tempNames.push(playerOneName, playerTwoName);
+  //let playerOneName = prompt("Input first player name:");
+  //let playerTwoName = prompt("Input second player name:");
+  let playerOneName = "Player one";
+  let playerTwoName = "Player two";
+  tempNames.push(nameCheker(playerOneName, 1), nameCheker(playerTwoName, 2));
   return tempNames;
 }
 
@@ -123,11 +136,9 @@ function checkWinner(counter) {
     let win = false;
     let currentString = `${xArray[0]},${xArray[1]},${xArray[2]}`;
     for (let i = 0; i < winningPlace.length; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (winningPlace[i].toString() == currentString) {
-          win = true;
-          break;
-        }
+      if (winningPlace[i].toString() == currentString) {
+        win = true;
+        break;
       }
     }
     if (win) {
@@ -225,4 +236,16 @@ function displayPoint(displayID) {
   if (list.counter == 8) checkWinner(8);
   if (list.counter == 9) checkWinner(9);
   guessingMove(char);
+}
+
+function restart() {
+  for (let i = 1; i <= 9; i++) {
+    list[i] = true;
+    document.getElementById(`${i}`).innerHTML = "";
+  }
+  list.counter = 0;
+  x.length = 0;
+  y.length = 0;
+  winner = false;
+  guessingMove("0");
 }
