@@ -28,7 +28,7 @@ let list = {
   counter: 0,
 };
 
-function nameCheker(string, number) {
+function nameCheker(string, numberName) {
   if (
     string == "" ||
     string == "1" ||
@@ -36,7 +36,7 @@ function nameCheker(string, number) {
     string == null ||
     string == undefined
   ) {
-    string = `Player ${number}`;
+    string = `Player ${numberName}`;
   }
   return string;
 }
@@ -47,7 +47,7 @@ function inputNames() {
   let playerTwo = prompt("Input second player name:");
   //let playerOne = "Player one";
   //let playerTwo = "Player two";
-  tempNames.push(nameCheker(playerOne, 1), nameCheker(playerTwo, 2));
+  tempNames.push(nameCheker(playerOne, "one"), nameCheker(playerTwo, "two"));
   return tempNames;
 }
 
