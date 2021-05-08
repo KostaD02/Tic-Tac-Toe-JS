@@ -43,11 +43,11 @@ function nameCheker(string, number) {
 
 function inputNames() {
   let tempNames = [];
-  let playerOneName = prompt("Input first player name:");
-  let playerTwoName = prompt("Input second player name:");
-  //let playerOneName = "Player one";
-  //let playerTwoName = "Player two";
-  tempNames.push(nameCheker(playerOneName, 1), nameCheker(playerTwoName, 2));
+  let playerOne = prompt("Input first player name:");
+  let playerTwo = prompt("Input second player name:");
+  //let playerOne = "Player one";
+  //let playerTwo = "Player two";
+  tempNames.push(nameCheker(playerOne, 1), nameCheker(playerTwo, 2));
   return tempNames;
 }
 
