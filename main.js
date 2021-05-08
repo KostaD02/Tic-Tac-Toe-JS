@@ -1,5 +1,6 @@
 let names;
 let winner = false;
+let winnerPlayer = 0;
 const winningPlace = [
   [1, 2, 3],
   [4, 5, 6],
@@ -110,23 +111,27 @@ function displayWinner(player) {
 
 function guessingMove(char) {
   if (!winner) {
-    if (char == "X")
+    if (char == "X") {
       document.getElementById(
         `displayPlayerTurn`
       ).innerHTML = `Now making move O`;
-    else
+    } else {
       document.getElementById(
         `displayPlayerTurn`
       ).innerHTML = `Now making move X`;
+    }
   } else {
-    if (char == "X")
+    if (winnerPlayer == 0) {
+      document.getElementById(`displayPlayerTurn`).innerHTML = "Tie";
+    } else if (winnerPlayer == 1) {
       document.getElementById(
         `displayPlayerTurn`
       ).innerHTML = `Winner is ${names[0]}`;
-    else
+    } else {
       document.getElementById(
         `displayPlayerTurn`
       ).innerHTML = `Winner is ${names[1]}`;
+    }
   }
 }
 
@@ -144,6 +149,7 @@ function checkWinner(counter) {
     if (win) {
       displayWinner(1);
       winner = true;
+      winnerPlayer = 1;
     }
   }
   if (counter == 6) {
@@ -160,6 +166,7 @@ function checkWinner(counter) {
     }
     if (win) {
       displayWinner(2);
+      winnerPlayer = 2;
       winner = true;
     }
   }
@@ -174,6 +181,7 @@ function checkWinner(counter) {
             if (counter == 3) {
               displayWinner(1);
               winner = true;
+              winnerPlayer = 1;
               return;
             }
           }
@@ -193,6 +201,7 @@ function checkWinner(counter) {
             if (counter == 3) {
               displayWinner(2);
               winner = true;
+              winnerPlayer = 2;
               return;
             }
           }
@@ -212,6 +221,7 @@ function checkWinner(counter) {
             if (counter == 3) {
               displayWinner(1);
               winner = true;
+              winnerPlayer = 1;
               return;
             }
           }
@@ -224,6 +234,9 @@ function checkWinner(counter) {
       title: "Oops...",
       text: "Tie , there is no winner",
     });
+    document.getElementById(`displayPlayerTurn`).innerHTML = "Tie";
+    winner = true;
+    winnerPlayer = 0;
   }
 }
 
